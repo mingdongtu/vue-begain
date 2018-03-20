@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
-    <router-view/>
+      <router-view></router-view>
+      <router-link :to="{path:'apple'}">香蕉跳苹果</router-link>
+      <router-link :to="{path:'banana'}">apple To banana</router-link>
   </div>
 </template>
 
