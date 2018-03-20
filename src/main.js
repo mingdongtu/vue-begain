@@ -5,6 +5,7 @@ import App from './App'
 import VRouter from 'vue-router'
 import Apple from './components/apple'
 import Banana from './components/banana'
+import RedApple from './components/redapple'
 
 
 //使用vue-router
@@ -14,14 +15,15 @@ let router = new VRouter({
        mode:"history",
        routes:[
          {
-           path:'/apple/:color/detail/:type',
+           path:'/apple',
            component:Apple,
            children:[
              {
-               path:'red',
-               component:RedApple
+                 path:'red',
+                 component:RedApple
              }
            ]
+
          },
          {
            path:'/banana',
@@ -38,6 +40,6 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
-  components: { App },
+  components:{ App },
   template: '<App/>'
 })

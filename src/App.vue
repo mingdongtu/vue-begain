@@ -4,6 +4,8 @@
       <router-view></router-view>
       <router-link :to="{path:'apple'}">香蕉跳苹果</router-link>
       <router-link :to="{path:'banana'}">apple To banana</router-link>
+
+    <router-link :to="{path:'apple/red'}">访问apple子组件</router-link>
   </div>
 </template>
 

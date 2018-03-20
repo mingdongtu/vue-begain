@@ -5,13 +5,15 @@
     <h1>{{msg}}</h1>
    <p> {{$route.params.color}} </p>
    <button @click = 'getParam'>获取参数</button>
+   <!--嵌套路由，本身要单独的router-view-->
+   <router-view></router-view>
  </div>
 </template>
 <script>
    export default {
         data(){
              return {
-                   msg : 'I am apple'
+                   msg : ' i am father of little apple'
              }
         },
      methods:{
