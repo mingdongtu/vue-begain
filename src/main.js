@@ -8,12 +8,20 @@ import Banana from './components/banana'
 
 
 //使用vue-router
+//一般路由和嵌套路由
 Vue.use(VRouter);
 let router = new VRouter({
+       mode:"history",
        routes:[
          {
-           path:'/apple',
-           component:Apple
+           path:'/apple/:color/detail/:type',
+           component:Apple,
+           children:[
+             {
+               path:'red',
+               component:RedApple
+             }
+           ]
          },
          {
            path:'/banana',
