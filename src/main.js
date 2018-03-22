@@ -10,13 +10,22 @@ import RedApple from './components/redapple'
 
 //使用vue-router
 //一般路由和嵌套路由
+//路由重定向
 Vue.use(VRouter);
 let router = new VRouter({
        mode:"history",
        routes:[
          {
+            path:'/',
+            redirect:'/apple'
+         } ,
+         {
            path:'/apple',
-           component:Apple,
+           components:{
+             viewA:Apple
+
+           },
+           name:'applePage',
            children:[
              {
                  path:'red',
@@ -27,12 +36,13 @@ let router = new VRouter({
          },
          {
            path:'/banana',
-           component:Banana
+           component:Banana,
+           name:'bananaPage',
          }
        ]
 })
 
-
+//
 
 Vue.config.productionTip = false
 
