@@ -1,6 +1,6 @@
 # vue-train
 
-> A Vue.js project
+> A Vue.js project that use vue-Cli
 
 ## Build Setup
 
