@@ -3,22 +3,25 @@
 import Vue from 'vue'
 import App from './App'
 import VRouter from 'vue-router'
+import Vuex from 'vuex'
 import Apple from './components/apple'
 import Banana from './components/banana'
 import RedApple from './components/redapple'
 
 
-//使用vue-router
+
+//注册插件
 //一般路由和嵌套路由
 //路由重定向
 Vue.use(VRouter);
+Vue.use(Vuex)
 let router = new VRouter({
        mode:"history",
        routes:[
-         {
-            path:'/',
-            redirect:'/apple'
-         } ,
+        //  {
+        //     path:'/',
+        //     redirect:'/apple'
+        //  } ,
          {
            path:'/apple',
            components:{
@@ -42,14 +45,29 @@ let router = new VRouter({
        ]
 })
 
-//
+//实例化store:一个数据中心
+let store = new Vuex.Store({
+      state:{
+           totalPrice:0
+      },
+      mutations:{
+           increment(state,price){
+                 state.totalPrice += price
+           },
+           decrement(state,price){
+                 state.totalPrice -= price
+           }
+      }
 
-Vue.config.productionTip = false
+})
 
-/* eslint-disable no-new */
+// Vue.config.productionTip = false
+
+/* 在全局使用vue-router和vuex */
 new Vue({
   el: '#app',
   router,
+  store,
   components:{ App },
   template: '<App/>'
 })
