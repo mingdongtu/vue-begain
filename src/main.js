@@ -47,8 +47,14 @@ let router = new VRouter({
 
 //实例化store:一个数据中心
 let store = new Vuex.Store({
+  // state用于存储状态变量
       state:{
            totalPrice:0
+      },
+      getters:{  //可以从数据集里面取数据
+         getTotal(state){
+               return state.totalPrice
+         }
       },
       mutations:{
            increment(state,price){
@@ -56,6 +62,12 @@ let store = new Vuex.Store({
            },
            decrement(state,price){
                  state.totalPrice -= price
+           }
+      },
+      actions:{
+           increase(context,price){   //用于异步操作,再触发mutation,后端接口需要放在这里
+            //context 为store
+              context.commit('increment',price)
            }
       }
 

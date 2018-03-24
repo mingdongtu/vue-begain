@@ -29,8 +29,8 @@ export default {
   name:'App',
   components:{apple,banana},
   computed:{
-        totalPrice(){
-             return this.$store.state.totalPrice
+        totalPrice(){  
+             return this.$store.getters.getTotal
         }
   }
 }
